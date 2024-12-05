@@ -77,11 +77,17 @@ nav {
   font-family: "HeadLine";
 }
 
-/* The homebottom will take up the remaining space with a white background */
+/* Combined Section: homebottom + trendingvideos */
+.combined-section {
+  background: linear-gradient(to bottom, #c5c5c5, #FFFFFF,#FFFFFF,#FFFFFF);
+  padding-bottom: 50px;  /* Ensures some space below */
+}
+
+/* Homebottom */
 .homebottom {
-  flex-grow: 1;
-  /* Makes this section take up remaining space */
-  background: linear-gradient(to bottom, #D2D2D2, #FFFFFF);
+  margin-bottom: 0; /* Remove space between sections */
+  text-align: center;
+  
 }
 
 .papercutp {
@@ -98,40 +104,99 @@ nav {
 }
 
 .homebottomcontent {
-  margin-top: 0;
-  margin-right: 40px;
-  width: 100%;
-  text-align: center;
-  font-size: xx-large;
   margin-top: 5%;
+  font-size: xx-large;
+  margin-right: 40px;
+  text-align: center;
+  margin-bottom: 10%;
 }
 
+/* Trending Videos */
 .trendingvideos {
-  background-color: white;
+  margin-top: 50px;
 }
 
 .trendingvideostitle {
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 50px;
-  margin-left: 30px;
+  margin-left: 40px;
   font-size: 50px;
   font-weight: 200;
 }
 
 .trendingvideoslist {
   display: flex;
-  /* width: 100%; */
   justify-content: space-evenly;
   margin-bottom: 50px;
-
 }
 
-.trendingvideo {
+.video-container {
+  position: relative;
   width: 30%;
 }
 
+.trendingvideo {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.trendingvideo:hover {
+  transform: scale(1.1);
+}
+
+.video-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.video-container:hover .video-title {
+  opacity: 1;
+}
+
+/* Animation for the entire section */
+@keyframes fadeUpTogether {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.combined-section {
+  animation: fadeUpTogether 1.5s ease-out forwards;
+}
+
+/* Apply animation delay to stagger content appearance slightly */
+.homebottom {
+  animation-delay: 0.5s;
+}
+
+.trendingvideos {
+  animation-delay: 0.7s;
+}
+
+/* Ensures that once the elements come into view, they trigger animation */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 .morevideos {
   background-color: black;
+  margin-bottom: 40px;
 }
 
 .morevideostitle {
@@ -145,14 +210,68 @@ nav {
 
 .morevideoslist {
   display: flex;
-  /* width: 100%; */
   justify-content: space-evenly;
-  margin-bottom: 50px;
+  /* margin-bottom: 5px; */
+}
 
+.video-container {
+  position: relative; /* Allows positioning of the title */
+  width: 30%;
 }
 
 .morevideo {
-  width: 30%;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.morevideo:hover {
+  transform: scale(1.1);
+}
+
+.video-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevents interaction with the title */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade in and out */
+}
+
+.video-container:hover .video-title {
+  opacity: 1; /* Make the title visible on hover */
+}
+
+/* Button Styling */
+.explore-button-container {
+  text-align: center;
+  margin-top: 40px; /* Add some space above the button */
+}
+
+.explore-button {
+  background-color: #ffffff; /* Golden color */
+  color: black;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-family: "mainFont";
+  font-weight: bold;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  border: solid black 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease ; /* Add transition for smooth hover effects */
+}
+
+.explore-button:hover {
+  background-color: #000000;
+  border: solid white 2px;
+  color: white; /* Darker shade of golden on hover */
+  /* transform: translateY(-5px); Slightly lift the button */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.479); /* Add shadow for depth */
 }
 
 .yourstorysection {
@@ -177,7 +296,7 @@ nav {
   margin-top: 20px;
   margin-left: 13%;
 }
-.yourstorybutton{
+.yourstorybutton {
   display: block;
   margin-top: 20px;
   margin-left: 15%;
@@ -188,7 +307,19 @@ nav {
   width: max-content;
   color: black;
   box-shadow: black 1px 2px 10px;
+  border: solid rgba(255, 255, 255, 0) 2px;
+  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease, border 0.4s ease;
+  /* Ensures smooth transition for all properties */
 }
+
+.yourstorybutton:hover {
+  background-color: #000000;
+  border: solid white 2px;
+  color: white; /* Darker shade of golden on hover */
+ /* Slight lift and subtle scale effect */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.479); /* Softer shadow with more depth */
+}
+
 .channeldatatitle{
   margin-top: 50px;
   margin-bottom: 50px;
@@ -200,12 +331,13 @@ nav {
 .channeldatalist{
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 20px;
 
 }
 .channeldataitem{
   width: 25%;
   background-color: white;
-  padding : 20px;
+  padding : 20px 5px;
   text-align: center  ;
   border-radius: 20px;
 }
@@ -228,6 +360,9 @@ nav {
   font-weight: bold;
 
 }
+.othercontent{
+  margin-bottom: 15%;
+}
 .borderforothercontent{
   height: 5px;
   width: 100%;
@@ -249,9 +384,6 @@ nav {
   display: flex;
   justify-content: space-evenly;
 }
-.circleimg{
-  border-radius: 100%;
-}
 .othercontentitem{
   align-items: center;
   align-content: center;
@@ -265,8 +397,446 @@ nav {
   margin-top: 20px;
   font-size: 30px;
 }
+.circleimg{
+  border-radius: 100%;
+  width: 70%;
+}
 .othercontentitemsubtitle{
   color:white;
   margin-top: 20px;
   font-size: 20px;
+}
+.shortsubheading{
+  font-size: 15px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+}
+.footerlogo{
+  margin-top: 10%;
+  width: 15rem;
+}
+.footersectiontitle{
+  font-size: 22px;
+  font-weight: bold;
+}
+.footerbottomredline{
+  background-color: red;
+  height: 3px;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+}
+.footerbottom{
+  color: white;
+  margin: auto;
+}
+
+
+
+/* General Animation for All Sections */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px); /* Slightly moved down initially */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When element comes into view, apply animation */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0); /* Bring it back to original position */
+}
+
+/* Keyframe Animations for Creative Effects */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUpTogether {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* General Animation for All Sections */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px); /* Slightly moved down initially */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When element comes into view, apply animation */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0); /* Bring it back to original position */
+}
+
+/* Headline Text animation */
+.headlinetext.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Home Bottom Animation */
+.homebottomcontent.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+.homemicimage.in-view{
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+
+.video-container.in-view {
+  animation: slideInUp 1s ease-in-out;
+}
+
+/* More Videos Section */
+.morevideostitle.in-view {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.morevideo.in-view {
+  animation: slideInUp 1s ease-in-out;
+}
+
+/* Your Story Section */
+.yourstoryimage.in-view {
+  animation: zoomIn 1s ease-in-out;
+}
+
+.yourstorybutton.in-view {
+  animation: bounceIn 1s ease-in-out;
+}
+
+/* Channel Data Section */
+.channeldataitem.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Border Animation */
+.borderforothercontent.in-view {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Other Content Section */
+.othercontenttitle.in-view {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.sidemicpic.in-view {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+/* Footer Section */
+.footersection.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Explore Button Animation */
+.explore-button.in-view {
+  animation: pulse 1.5s infinite;
+}
+
+/* CSS for specific elements */
+.combined-section {
+  animation: fadeUpTogether 1.5s ease-out forwards;
+}
+
+/* Apply animation delay to stagger content appearance slightly */
+.homebottom {
+  animation-delay: 0.5s;
+}
+
+.trendingvideos {
+  animation-delay: 0.7s;
+}
+
+.morevideos {
+  background-color: black;
+  margin-bottom: 40px;
+}
+
+.morevideostitle {
+  margin-top: 150px;
+  margin-bottom: 50px;
+  margin-left: 30px;
+  font-size: 50px;
+  font-weight: 100;
+  color: white;
+}
+
+.morevideoslist {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.video-container {
+  position: relative;
+  width: 30%;
+}
+
+.morevideo {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.morevideo:hover {
+  transform: scale(1.1);
+}
+
+.video-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none; /* Prevents interaction with the title */
+  transition: opacity 0.3s ease-in-out; /* Smooth fade in and out */
+}
+
+.video-container:hover .video-title {
+  opacity: 1; /* Make the title visible on hover */
+}
+
+/* Button Styling */
+.explore-button-container {
+  text-align: center;
+  margin-top: 40px; /* Add some space above the button */
+}
+
+.explore-button {
+  background-color: #ffffff; /* Golden color */
+  color: black;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-family: "mainFont";
+  font-weight: bold;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  border: solid black 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #000000;
+  border: solid white 2px;
+  color: white; /* Darker shade of golden on hover */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.479); /* Add shadow for depth */
+}
+.exploreimg {
+  width: 60%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.exploreimg:hover {
+  transform: scale(1.05);
 }
