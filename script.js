@@ -14,3 +14,18 @@ const observer = new IntersectionObserver((entries, observer) => {
 elements.forEach(element => {
   observer.observe(element); // Start observing each element
 });
+
+// JavaScript for toggling the mobile menu
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+const closeBtn = document.getElementById('close-btn');
+
+// Open the mobile nav when the hamburger is clicked
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.add('open');
+});
+
+// Close the mobile nav when the close button is clicked
+closeBtn.addEventListener('click', () => {
+  mobileNav.classList.remove('open');
+});
