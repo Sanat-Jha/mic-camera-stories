@@ -1,0 +1,119 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Your Story {% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/yourstoryform.css' %}">
+<style>
+    /* Basic styles for the dialog box */
+    #messageDialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 2px solid black;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+        max-width: 300px;
+        text-align: center;
+    }
+    #closeBtn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        color: red;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div id="messageDialog">
+    <span id="closeBtn">&times;</span>
+    <p id="messageText"></p>
+</div>
+<div class="welcomesection animate-on-scroll slide-in-left">
+    Share your journey, inspire others, and be the voice of change.
+</div>
+
+<img src="{% static 'img/NavLogo.png' %}" alt="Mic Camera Stories" class="herologo animate-on-scroll zoom-in">
+
+<div class="formtop animate-on-scroll slide-in-right">
+    <p>We’re here to assist you!</p>
+    <p>Write to us at <a href="mailto:miccamerastories@gmail.com">miccamerastories@gmail.com</a></p>
+</div>
+
+<div class="form-container animate-on-scroll fade-up">
+    <h2>Enter your enquiry below and we’ll be happy to take you on stage:</h2>
+    <form id="contact-form" method="post" action="/yourstory">  
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group">
+                <label for="first-name">First Name*</label>
+                <input type="text" id="first-name" name ="firstname" required />
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name*</label>
+                <input type="text" id="last-name"  name="lastname" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Id*</label>
+            <input type="email" id="email"  name="email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Mobile Number*</label>
+            <input type="text" id="mobile" name="mobile" required />
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address*</label>
+            <input type="text" id="address" name="address" required />
+        </div>
+
+        <div class="form-group">
+            <label for="organization">Individual / Organisation</label>
+            <input type="text" id="organization" name="organization" />
+        </div>
+
+        <div class="form-group">
+            <label for="story">Your Story in less than 100 Words*</label>
+            <textarea id="story" rows="5" name="story" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="feedback">Any Feedback for Mic Camera Stories ❤️</label>
+            <input type="text" id="feedback" name="feedback" />
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
+<div class="welcomefootersection animate-on-scroll fade-in">
+    Welcome to Mic Camera Stories <br>Where every story inspires a journey to greatness!
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const message = "{{ message|escapejs }}";
+        if (message.trim() !== "") {
+            const dialog = document.getElementById("messageDialog");
+            const messageText = document.getElementById("messageText");
+            const closeBtn = document.getElementById("closeBtn");
+
+            messageText.textContent = message;
+            dialog.style.display = "block";
+
+            closeBtn.addEventListener("click", function () {
+                dialog.style.display = "none";
+            });
+        }
+    });
+</script>
+
+{% endblock %}

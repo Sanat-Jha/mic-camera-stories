@@ -1,0 +1,52 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Mic Camera Stories {% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+{% endblock %}
+{% block content %}
+
+<div class="whoarewesection">
+    <div class="whoarewecontent animate-on-scroll">
+        <h1>Who are we?</h1>
+        <p>
+            {{channel.whoarewe|safe|linebreaks}}
+            <!-- <b>"Mic Camera Stories"</b> is a platform that shares the inspiring journeys of people from all
+            backgrounds—whether you're an IIT/NEET topper, a security guard, or anyone who's conquered challenges.
+            We celebrate perseverance, character, and success beyond academics. -->
+        </p>
+    </div>
+    <img src="{% static 'img/about page studio image.png' %}" class="whoareweimage ">
+</div>
+
+<div class="storysection">
+    <h1>Mic Camera Stories ki Story</h1>
+    <div class="storysubsection">
+        <span class="storycontent animate-on-scroll">
+            {{channel.story|safe|linebreaks}}
+            <!-- <b>Mic Camera Stories </b>began on <b><i>September 20, 2024,</i></b> in a hostel room at <b><i>IIT Roorkee,</i></b>
+            founded by Dheeraj Mourya with just a mic, camera, and a vision to inspire. It celebrates real-life
+            success stories, starting with JEE journeys, showcasing the resilience and determination behind
+            achievements. Focused on voices that overcome challenges, it shares weekly talks that motivate and
+            connect with thousands. From humble beginnings, Mic Camera Stories continues to inspire, proving that
+            every story holds the power to ignite dreams. -->
+        </span>
+        <img src="{% static 'img/divya.png' %}" alt="Mic Camera Stories" class="animate-on-scroll">
+    </div>
+    <div class="storysubsection">
+        <img src="{% static 'img/Dheeraj Maurya About page.png' %}" class="dheerajmaurya animate-on-scroll" alt="Mic Camera Stories">
+        <span class="foundercontent animate-on-scroll">
+            {{channel.founder|safe|linebreaks}}
+            <!-- Mic Camera Stories started as a dream—a dream to bring inspiring stories to light and remind people of the incredible strength and potential within them. I believe that every story, no matter how ordinary it may seem, has the power to inspire someone, somewhere. <br>
+            When I began this journey from a small hostel room, all I had was a mic, a camera, and a burning desire to make a difference. I’ve always been inspired by the struggles and triumphs of others, and I wanted to create a platform where these stories could be shared, celebrated, and cherished.
+            Through this platform, we aim to go beyond numbers and titles to uncover the real essence of success—the challenges, sacrifices, and resilience that fuel every achievement. Whether it’s a student conquering JEE, a professional overcoming setbacks, or anyone who’s dared to dream big, every story deserves to be heard. <br>
+            Mic Camera Stories isn’t just a platform; it’s a community of dreamers, doers, and believers. Together, let’s inspire the world,</span> -->
+    </div>
+    <div class="welcomesection animate-on-scroll">
+        Welcome to Mic Camera Stories <br>Where every story inspires a journey to greatness!
+    </div>
+</div>
+{% endblock %}

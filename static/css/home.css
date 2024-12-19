@@ -1,0 +1,660 @@
+
+.head {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homemicimage {
+  width: 25%;
+  height: auto;
+  margin-top: 3%;
+}
+
+.headlinetext {
+  font-size: 3.5vw;
+  background: linear-gradient(to bottom, #FFFFFF, #e7e7e7, #393939);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-right: 40px;
+  font-family: "HeadLine";
+  margin-right: 10%;
+}
+
+/* Combined Section: homebottom + trendingvideos */
+.combined-section {
+  background: linear-gradient(to bottom, #c5c5c5, #FFFFFF,#FFFFFF,#FFFFFF);
+  padding-bottom: 50px;  /* Ensures some space below */
+}
+
+/* Homebottom */
+.homebottom {
+  margin-bottom: 0; /* Remove space between sections */
+  text-align: center;
+  
+}
+
+.papercutp {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  margin: 0;
+}
+
+.papercut {
+  width: 60px;
+  height: auto;
+  margin: 0;
+}
+
+.homebottomcontent {
+  margin-top: 5%;
+  font-size: 25px;
+  margin-right: 40px;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+
+
+/* Trending Videos */
+.trendingvideos {
+  margin-top: 50px;
+}
+
+.trendingvideostitle {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  font-size: 56px;
+  font-weight: 200;
+}
+
+.trendingvideoslist {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+  margin-bottom: 50px;
+}
+
+.video-container {
+  position: relative;
+  width: 30%; /* Default for larger screens */
+  margin-bottom: 20px; /* Add space between rows on small screens */
+}
+
+.trendingvideo {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.trendingvideo:hover {
+  transform: scale(1.1);
+}
+
+.video-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.video-container:hover .video-title {
+  opacity: 1;
+}
+
+
+@media (max-width: 900px) {
+  .trendingvideostitle {
+    font-size: 40px; /* Even smaller font size for smaller screens */
+  }
+
+  .video-container {
+    width: 48%; /* Allow for two videos per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .trendingvideostitle {
+    font-size: 35px; /* Further reduce font size for mobile screens */
+    margin-left: 20px; /* Adjust margin for smaller screens */
+  }
+
+  .trendingvideoslist {
+    flex-direction: column; /* Arrange videos in a vertical column on mobile */
+    justify-content: center; /* Center align videos on mobile */
+    align-items: center; /* Center the column */
+  }
+
+  .video-container {
+    width: 80%; /* Increase the width of video containers on mobile */
+    margin-bottom: 20px; /* Add space between the stacked videos */
+  }
+}
+
+/* Animation for the entire section */
+@keyframes fadeUpTogether {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.combined-section {
+  animation: fadeUpTogether 1.5s ease-out forwards;
+}
+
+/* Apply animation delay to stagger content appearance slightly */
+.homebottom {
+  animation-delay: 0.5s;
+}
+
+.trendingvideos {
+  animation-delay: 0.7s;
+}
+
+/* Ensures that once the elements come into view, they trigger animation */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* More Videos */
+.morevideos {
+  background-color: black;
+  margin-bottom: 40px;
+}
+
+.morevideostitle {
+  margin-top: 150px;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  font-size: 56px;
+  font-weight: 100;
+  color: white;
+}
+
+.morevideoslist {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+  margin-bottom: 50px;
+}
+
+.video-container {
+  position: relative;
+  width: 30%; /* Default for larger screens */
+  margin-bottom: 20px; /* Add space between rows on small screens */
+}
+
+.morevideo {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.morevideo:hover {
+  transform: scale(1.1);
+}
+
+.video-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.video-container:hover .video-title {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .morevideostitle {
+    font-size: 40px; /* Smaller font size for tablets */
+  }
+
+  .video-container {
+    width: 48%; /* Allow for two videos per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .morevideostitle {
+    font-size: 35px; /* Smaller font size for mobile */
+    margin-left: 20px; /* Adjust margin for smaller screens */
+  }
+
+  .morevideoslist {
+    flex-direction: column; /* Arrange videos in a vertical column on mobile */
+    justify-content: center; /* Center align videos on mobile */
+    align-items: center; /* Center the column */
+  }
+
+  .video-container {
+    width: 80%; /* Increase the width of video containers on mobile */
+    margin-bottom: 20px; /* Add space between the stacked videos */
+  }
+}
+/* Button Styling */
+.explore-button-container {
+  text-align: center;
+  margin-top: 40px; /* Add some space above the button */
+}
+
+.explore-button {
+  background-color: #ffffff; /* Golden color */
+  color: black;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-family: "mainFont";
+  font-weight: bold;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  border: solid black 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border 0.3s ease ; /* Add transition for smooth hover effects */
+}
+
+.explore-button:hover {
+  background-color: #000000;
+  border: solid white 2px;
+  color: white; /* Darker shade of golden on hover */
+  /* transform: translateY(-5px); Slightly lift the button */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.479); /* Add shadow for depth */
+}
+/* Your Story Section */
+.yourstorysection {
+  background-color: white;
+  padding-bottom: 20px;
+}
+
+.papercutpyourstory {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  margin: 0;
+}
+
+.papercutpyourstory img {
+  width: 60px;
+  height: auto;
+  margin: 0;
+  transform: scaleX(-1);
+}
+
+.yourstoryimage {
+  margin-top: 20px;
+  margin-left: 13%;
+  width: 60%; /* Adjust image width for better responsiveness */
+}
+
+.yourstorybutton {
+  display: block;
+  margin-top: 20px;
+  font-size: 40px;
+  padding: 5px 20px;
+  background-color: #D9D9D9;
+  border-radius: 15px;
+  width: max-content;
+  color: black;
+  box-shadow: black 1px 2px 10px;
+  border: solid rgba(255, 255, 255, 0) 2px;
+  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease, border 0.4s ease;
+  margin-left: 15%; /* Center button on larger screens */
+}
+
+.yourstorybutton:hover {
+  background-color: #000000;
+  border: solid white 2px;
+  color: white; /* Darker shade of golden on hover */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.479); /* Softer shadow with more depth */
+}
+
+.homebottomcontent {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .yourstoryimage {
+    width: 50%; /* Reduce image size on medium screens */
+    margin-left: 25%; /* Adjust margin for better positioning */
+  }
+
+  .yourstorybutton {
+    font-size: 30px; /* Smaller button text for medium screens */
+    margin-left: 20%; /* Center button better on medium screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .yourstoryimage {
+    width: 60%; /* Adjust image size on tablets */
+    margin-left: 20%; /* Adjust margin for tablets */
+  }
+
+  .yourstorybutton {
+    font-size: 28px; /* Smaller font size for tablets */
+    margin-left: 10%; /* Adjust button margin for tablets */
+  }
+
+  .homebottomcontent {
+    font-size: 20px; /* Smaller text for tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .yourstoryimage {
+    width: 80%; /* Increase image size for mobile screens */
+    margin-left: 10%; /* Adjust margin for mobile */
+  }
+
+  .yourstorybutton {
+    font-size: 24px; /* Smaller button text for mobile */
+    margin: 20px auto; /* Center the button horizontally */
+    width: 80%; /* Ensure button width is appropriate for mobile screens */
+    text-align: center;
+  }
+
+  .homebottomcontent {
+    font-size: 18px; /* Smaller text for mobile */
+  }
+}
+.channeldatasection{
+  text-align: center;
+}
+.channeldatatitle {
+  margin: 50px auto;
+  font-size: 50px;
+  font-weight: 100;
+  color: white;
+}
+
+.channeldatalist {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.channeldataitem {
+  width: 25%; /* Default width for larger screens */
+  background-color: white;
+  padding: 20px 5px;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 20px; /* Add space between items on smaller screens */
+}
+
+.channeldataitemtitle {
+  color: black;
+  font-size: 2vw;
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .channeldataitemtitle {
+    font-size: 4vw; /* Further reduce font size for mobile screens */
+  }
+
+  .channeldatalist {
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center; /* Center align items in the column */
+  }
+
+  .channeldataitem {
+    width: 75%; /* Make items wider on mobile */
+    margin-bottom: 20px; /* Add space between stacked items */
+  }
+}
+
+.channeldataitemdata {
+  background: linear-gradient(#10B7FF, #0E54BC);
+  background-clip: text;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 5vw;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+@media screen and (max-width: 600px) {
+
+  .channeldataitemdata {
+    font-size: 12vw; /* Further reduce font size for mobile screens */
+  }
+}
+
+
+.othercontent {
+  margin-bottom: 15%;
+}
+
+.borderforothercontent {
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(to right, red, black 50%, red);
+}
+
+.sidemicpic {
+  width: 10%;
+}
+
+.othercontenttitle {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  margin-left: 30px;
+  font-size: 50px;
+  font-weight: 100;
+  color: white;
+  text-align: center;
+}
+
+.othercontenttlist {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap; /* Allow wrapping of content on smaller screens */
+}
+
+.othercontentitem {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 30px; /* Add spacing between items on smaller screens */
+}
+.othercontentitem:hover {
+  transform: scale(1.1);
+}
+
+.othercontentitemimage {
+  width: 60%;
+}
+
+.othercontentitemtitle {
+  color: white;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.circleimg {
+  border-radius: 100%;
+  width: 70%;
+}
+
+.othercontentitemsubtitle {
+  color: white;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.shortsubheading {
+  font-size: 15px;
+}
+
+/* Media Queries for responsiveness */
+
+/* For tablets and smaller screens */
+@media screen and (max-width: 900px) {
+  .othercontenttitle {
+    font-size: 40px; /* Smaller font size for the title */
+  }
+
+  .othercontentitem {
+    width: 45%; /* Allow for two items per row on tablets */
+  }
+
+  .othercontentitemtitle {
+    font-size: 25px; /* Adjust subtitle font size */
+  }
+
+  .othercontentitemsubtitle {
+    font-size: 18px; /* Adjust subtitle font size */
+  }
+
+  .shortsubheading {
+    font-size: 14px; /* Adjust short subtitle font size */
+  }
+}
+
+/* For mobile screens */
+@media screen and (max-width: 600px) {
+  .othercontenttitle {
+    font-size: 35px; /* Further reduce title size on mobile */
+    margin-left: 20px; /* Adjust margin for mobile */
+  }
+
+  .othercontenttlist {
+    justify-content: center; /* Center items vertically and horizontally */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items in the column */
+  }
+
+  .othercontentitem {
+    width: 80%; /* Increase width of items on mobile */
+    margin-bottom: 20px; /* Add space between stacked items */
+  }
+
+  .othercontentitemimage {
+    width: 80%; /* Make images larger on mobile */
+  }
+
+  .circleimg {
+    width: 60%; /* Adjust the circular image size */
+  }
+
+  .othercontentitemtitle {
+    font-size: 25px; /* Adjust font size */
+  }
+
+  .othercontentitemsubtitle {
+    font-size: 16px; /* Adjust subtitle font size */
+  }
+
+  .shortsubheading {
+    font-size: 14px; /* Adjust short subtitle font size */
+  }
+}
+
+
+/* Headline Text animation */
+.headlinetext.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Home Bottom Animation */
+.homebottomcontent.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+.homemicimage.in-view{
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+
+.video-container.in-view {
+  animation: slideInUp 1s ease-in-out;
+}
+
+/* More Videos Section */
+.morevideostitle.in-view {
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.morevideo.in-view {
+  animation: slideInUp 1s ease-in-out;
+}
+
+/* Your Story Section */
+.yourstoryimage.in-view {
+  animation: zoomIn 1s ease-in-out;
+}
+
+.yourstorybutton.in-view {
+  animation: bounceIn 1s ease-in-out;
+}
+
+/* Channel Data Section */
+.channeldataitem.in-view {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Border Animation */
+.borderforothercontent.in-view {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Other Content Section */
+.othercontenttitle.in-view {
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.sidemicpic.in-view {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+
+/* Explore Button Animation */
+.explore-button.in-view {
+  animation: pulse 1.5s infinite;
+}
+
+/* CSS for specific elements */
+.combined-section {
+  animation: fadeUpTogether 1.5s ease-out forwards;
+}
+
+/* Apply animation delay to stagger content appearance slightly */
+.homebottom {
+  animation-delay: 0.5s;
+}
+
+.trendingvideos {
+  animation-delay: 0.7s;
+}

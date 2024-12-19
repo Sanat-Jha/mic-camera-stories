@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Mic Camera Stories {% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/videopage.css' %}">
+
+{% endblock %}
+{% block content %}
+<div class="videosection bounce-in">
+
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/{{ video.videoId}}" title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <div class="videodetails">
+    <div class="title">{{video.title}}</div>
+    <div class="statslist">
+      <div class="statsitem view">
+        <img src="{% static 'img/view.png'%}" alt="Views" class="statsicon">
+        <div class="stats">{{video.views}}</div>
+      </div>
+      <div class="statsitem like">
+        <img src="{% static 'img/Like.png'%}" alt="Likes" class="statsicon">
+        <div class="stats">{{video.likes}}</div>
+      </div>
+      <div class="statsitem share">
+        <img src="{% static 'img/Share.png'%}" alt="Shares" class="statsicon">
+        <div class="stats">Share</div>
+      </div>
+    </div>
+    <a href="https://www.youtube.com/watch?v={{ video.videoId}}" target="_blank" class="watchonyt-btn">Watch On
+      Youtube</a>
+
+  </div>
+</div>
+
+
+<div class="descriptionsection">
+  <div class="overview">
+    Overview
+  </div>
+  <div class="descriptioncontent">
+    {{video.description|linebreaksbr }} </div>
+</div>
+<div class="morevideos animate-on-scroll">
+  <h1 class="morevideostitle animate-on-scroll">More Collection</h1>
+  <div class="morevideoslist">
+    {% for video in videos %}
+    <div class="video-container animate-on-scroll" data-video-id="{{ video.videoId }}">
+      <img src="{{video.thumbnail}}" alt="{{video.title}}" class="morevideo">
+      <div class="video-title">{{video.title}}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="explore-button-container animate-on-scroll">
+    <a href="/stories"> <button class="explore-button animate-on-scroll zoom-in">Explore more stories ></button></a>
+  </div>
+</div>
+<div class="welcomesection ">
+  Welcome to Mic Camera Stories <br>Where every story inspires a journey to greatness!
+</div>
+</div>
+<script src="{% static 'js/videopage.js'%}"></script>
+{% endblock %}

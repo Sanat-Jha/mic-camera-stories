@@ -1,0 +1,69 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Mic Camera Stories {% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/allvideos.css' %}">
+
+{% endblock %}
+{% block content %}
+<div class="heading">All Stories</div>
+<div class="storiesgrid">
+  {% for video in videos %}
+  <div class="video-card animate-on-scroll">
+    <img src="{{video.thumbnail}}" alt="{{video.title}}" class="video-thumbnail">
+    <div class="video-info">
+      <h3 class="video-title">{{video.title}}</h3>
+      <p class="video-stats" data-views="{{video.views}}" data-likes="{{video.likes}}">
+        {{video.views}} views • {{video.likes}} likes
+      </p>
+      <button class="watch-button" data-video-id="{{ video.videoId }}">Watch Now</button>
+    </div>
+  </div>
+{% endfor %}
+
+
+</div>
+<script>
+      // Get all video containers (both from trending and more videos)
+      const videoContainers = document.querySelectorAll('.video-card');
+
+// Add click event to each video container
+videoContainers.forEach(container => {
+  var button = container.getElementsByClassName("watch-button")[0];
+  button.addEventListener('click', () => {
+    // Get video ID from data attribute
+    const videoId = button.getAttribute('data-video-id');
+    
+    // Redirect to /story with the video ID as a query parameter
+    window.location.href = `/story?videoid=${videoId}`;
+  });
+});
+// Helper function to format numbers to 'k' notation
+function formatNumberToK(number) {
+  if (number >= 1000) {
+    return (number / 1000).toFixed(1).replace(/\.0$/, '') + 'k+';
+  }
+  return number;
+}
+
+// Select all video stats elements
+const videoStatsElements = document.querySelectorAll('.video-stats');
+
+// Loop through each element and update views and likes
+videoStatsElements.forEach((element) => {
+  const views = parseInt(element.dataset.views, 10);
+  const likes = parseInt(element.dataset.likes, 10);
+
+  const formattedViews = formatNumberToK(views);
+  const formattedLikes = formatNumberToK(likes);
+
+  element.innerText = `${formattedViews} views • ${formattedLikes} likes`;
+});
+
+</script>
+<script src="{% static 'js/allvideos.js'%}"></script>
+<!-- <script src="{% static 'js/base.js'%}"></script> -->
+<!-- <script src="{% static 'js/base.js'%}"></script> -->
+{% endblock %}

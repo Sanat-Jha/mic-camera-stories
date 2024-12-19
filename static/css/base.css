@@ -1,0 +1,431 @@
+@font-face {
+    font-family: 'HeadLine';
+    /* The name you will use in CSS */
+    src: url('../fonts/Jost-Light.ttf') format('truetype');
+    /* Path to the .ttf file */
+  }
+  
+  @font-face {
+    font-family: 'mainFont';
+    /* The name you will use in CSS */
+    src: url('../fonts/DidactGothic-Regular.ttf') format('truetype');
+    /* Path to the .ttf file */
+  }
+  
+  
+  body,
+  html {
+    height: 100%;
+    /* Ensures full height of the page */
+    margin: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    /* Makes the body a flex container */
+    font-family: 'mainFont';
+  }
+  /* Base styles */
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    position: sticky; /* Sticky position for the navbar */
+    top: 0; /* Stay at the top */
+    background-color: black; /* Set navbar background to black */
+    padding: 10px 20px;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  
+  .logo {
+    margin-left: 3%;
+    margin-top: 1%;
+  }
+  
+  .logo img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .navlist {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+  }
+  
+  .navitem {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+  }
+  
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  /* Mobile Nav */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0; /* Ensure it starts from the left edge */
+    background-color: black;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    padding: 50px 20px;
+    text-align: center;
+    z-index: 10010;
+    overflow-y: auto; /* Allow scrolling if content exceeds viewport height */
+  }
+  .mobile-nav .navitem {
+    display: block;
+    font-size: 25px;
+    margin: 20px 0;
+    color: white;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .navlist {
+      display: none; /* Hide desktop nav */
+    }
+  
+    .hamburger {
+      display: block; /* Show hamburger icon on mobile */
+    }
+  
+    .mobile-nav.open {
+      display: block; /* Show mobile nav when it's open */
+    }
+  }
+
+  
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    flex-wrap: wrap; /* Allow footer sections to wrap on smaller screens */
+    padding: 20px;
+  }
+  
+  .footerlogo {
+    margin-top: 10%;
+    width: 15rem; /* Adjust logo width */
+  }
+  
+  .footersection {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .footersectiontitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .footerbottomredline {
+    background-color: red;
+    height: 3px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .footerbottom {
+    color: white;
+    margin: auto;
+    text-align: center; /* Center the bottom text */
+    padding: 10px 0;
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  @media screen  and (max-width: 980px){
+    .footerlogo {
+      display: none;
+    }
+  }
+  
+  
+  /* For mobile screens */
+  @media screen and (max-width: 750px) {
+    .footerlogo {
+      width: 10rem; /* Reduce logo size for mobile */
+      display:inline-block;
+    }
+  
+    .footersection {
+      width: 100%; /* Stack sections vertically */
+      margin: 10px 0; /* Add space between stacked sections */
+      text-align: center; /* Center-align the text */
+    }
+  
+    .footersectiontitle {
+      font-size: 18px; /* Reduce font size for mobile */
+    }
+  
+    .footerbottom {
+      font-size: 14px; /* Adjust the bottom text size */
+    }
+  }
+  
+  
+  /* General Animation for All Sections */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Slightly moved down initially */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* When element comes into view, apply animation */
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0); /* Bring it back to original position */
+  }
+  
+  /* Keyframe Animations for Creative Effects */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeUpTogether {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(20px);
+    }
+    70% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* General Animation for All Sections */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Slightly moved down initially */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  /* When element comes into view, apply animation */
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0); /* Bring it back to original position */
+  }
+  
+/* Footer Section */
+.footersection.in-view {
+    animation: fadeInUp 1s ease-in-out;
+  }

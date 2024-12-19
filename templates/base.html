@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title%} {% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="shortcut icon" href="{% static 'img/NavLogo.png'%}" type="image/x-icon">
+  {% block header%}
+  {% endblock %}
+</head>
+
+<body>
+
+  <body>
+    <nav class="animate-on-scroll fade-in">
+      <div class="logo">
+        <a href="/">
+          <img src="{% static 'img/NavLogo.png'%}" alt="Mic Camera Stories">
+        </a>
+      </div>
+      <div class="navlist">
+        <a href="/about" class="navitem">About Us</a>
+        <a class="navitem" href="https://youtube.com/@miccamerastories" target="_blank">Visit Channel</a>
+        <a href="/yourstory" class="navitem">What's your Story?</a>
+      </div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <div class="mobile-nav" id="mobile-nav">
+        <div class="close-btn" id="close-btn">&times;</div>
+        <a href="/about" class="navitem">About Us</a>
+        <a class="navitem" href="https://youtube.com/@miccamerastories" target="_blank">Visit Channel</a>
+        <a href="/yourstory" class="navitem">What's your Story?</a>
+      </div>
+    </nav>
+{% block content %}
+{% endblock %}
+<div class="footer animate-on-scroll">
+    <div class="footersection animate-on-scroll">
+      <img src="{% static 'img/NavLogo.png'%}" alt="Mic Camera Stories" class="footerlogo">
+    </div>
+    <div class="footersection animate-on-scroll">
+      <p class="footersectiontitle">Ecosystem</p>
+      <a href="/"><p>Mic Camera Stories</p></a>
+      <a href="https://www.youtube.com/playlist?list=PLWHiffv-ceW9XLH-FUnL1HKHjQ8MB_0l5"><p>Mic Camera Podcast</p></a>
+      <a href="https://www.youtube.com/@DheerajmouryaIITR"><p>Dheeraj Maurya</p></a>
+    </div>
+    <div class="footersection animate-on-scroll">
+     <p class="footersectiontitle">Share Your Story</p>
+     <a href="/yourstory"> <p>Fill Your Details</p></a>
+    </div>
+    <div class="footersection animate-on-scroll">
+      <p class="footersectiontitle">About Mic Camera Stories</p>
+      <a href="/about"><p>About</p></a>
+      <a href="mailto:miccamerastories@gmail.com"><p>Contact</p></a>
+      <p>Gallery</p>
+    </div>
+  </div>
+
+  <div class="footerbottomredline animate-on-scroll">.</div>
+  <div class="footerbottom">
+    <p class="footerbottomtext">© 2021 Mic Camera Stories. All Rights Reserved.</p>
+  </div>
+
+  <script src="{% static 'js/base.js'%}"></script>
+</body>
+
+</html>
