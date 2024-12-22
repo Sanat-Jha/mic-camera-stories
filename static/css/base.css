@@ -61,7 +61,27 @@
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
+    position: relative; /* Required for positioning the pseudo-element */
+    text-decoration: none; /* Optional: remove any default underline */
   }
+  
+  /* Create the bottom border using ::after */
+  .navitem::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease; /* Smooth transition for width */
+  }
+  
+  /* On hover, expand the bottom border from left to right */
+  .navitem:hover::after {
+    width: 100%;
+  }
+  
   
   .hamburger {
     display: none;

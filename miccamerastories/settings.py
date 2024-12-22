@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'contentmanagement',
+    'django_apscheduler'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'miccamerastories@gmail.com'
 EMAIL_HOST_PASSWORD = 'tsxj tkrw hlhb wtbr'
+
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds

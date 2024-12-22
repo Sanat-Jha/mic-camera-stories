@@ -8,6 +8,7 @@ from .models import Channel, Video
 import re
 
 def fetchchanneldetails():
+    print("Fetching channel details...")
     # Disable OAuthlib's HTTPS verification when running locally.
     # *DO NOT* leave this option enabled in production.
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
@@ -65,15 +66,12 @@ def fetchchanneldetails():
         minutes = int(duration_match.group(2) or 0)
         seconds = int(duration_match.group(3) or 0)
         total_duration_seconds = hours * 3600 + minutes * 60 + seconds
-        print(total_duration_seconds)
         # Filter out videos shorter than 1 minute (60 seconds)
         if total_duration_seconds <= 60:
-            print("yes")
             continue
-        print("no")
 
         title = item['snippet']['title']
-        print(title)
+
         description = item['snippet']['description']
         url = f"https://www.youtube.com/watch?v={videoid}"
         thumbnail = item['snippet']['thumbnails']['high']['url']

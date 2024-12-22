@@ -12,6 +12,7 @@
   margin-top: 3%;
 }
 
+
 .headlinetext {
   font-size: 3.5vw;
   background: linear-gradient(to bottom, #FFFFFF, #e7e7e7, #393939);
@@ -22,6 +23,14 @@
   font-family: "HeadLine";
   margin-right: 10%;
 }
+.headlinetext:hover {
+  background: linear-gradient(to bottom, #393939,#e7e7e7, #FFFFFF);
+  transition: all 0.5s ease;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3.55vw;
+}
+
 
 /* Combined Section: homebottom + trendingvideos */
 .combined-section {
@@ -44,7 +53,7 @@
 }
 
 .papercut {
-  width: 40px;
+  width: 50px;
   height: auto;
   margin: 0;
 }
@@ -283,106 +292,169 @@
   /* transform: translateY(-5px); Slightly lift the button */
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.479); /* Add shadow for depth */
 }
+
+
 /* Your Story Section */
 .yourstorysection {
   background-color: white;
-  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: space-between; /* Space out the left and right sections */
+  gap: 2%; /* Adding space between the sections */
+  padding: 40px; /* Padding for general spacing */
+  position: relative; /* Set position relative for positioning child elements */
+}
+
+.yourstorysectionleft, .yourstorysectionright {
+  width: 48%; /* Each section takes up 48% of the container width */
 }
 
 .papercutpyourstory {
-  display: flex;
-  width: 100%;
-  justify-content: start;
-  margin: 0;
+  position: absolute; /* Position the image absolutely */
+  top: 0; /* Align the image to the top */
+  left: 0; /* Align the image to the left */
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
 }
 
 .papercutpyourstory img {
-  width: 60px;
+  width: 15%;
   height: auto;
   margin: 0;
-  transform: scaleX(-1);
+  transform: scaleX(-1); /* Flip the image horizontally */
 }
 
 .yourstoryimage {
   margin-top: 20px;
-  margin-left: 13%;
-  width: 60%; /* Adjust image width for better responsiveness */
+  width: 100%; /* Make image responsive */
+  max-width: 70%; /* Maximum size of the image */
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Center the image */
+}
+
+.yourstoryvideo {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  /* Ensure video fits the container */
+  max-height: 80vh;
 }
 
 .yourstorybutton {
   display: block;
   margin-top: 20px;
   font-size: 40px;
-  padding: 5px 20px;
+  padding: 12px 25px;
   background-color: #D9D9D9;
   border-radius: 15px;
   width: max-content;
   color: black;
-  box-shadow: black 1px 2px 10px;
-  border: solid rgba(255, 255, 255, 0) 2px;
-  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease, border 0.4s ease;
-  margin-left: 15%; /* Center button on larger screens */
+  box-shadow: 1px 2px 10px black;
+  border: none;
+  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+  margin-left: auto;
+  margin-right: auto; /* Center button horizontally */
 }
 
 .yourstorybutton:hover {
   background-color: #000000;
-  border: solid white 2px;
-  color: white; /* Darker shade of golden on hover */
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.479); /* Softer shadow with more depth */
+  border: solid 2px white;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.479);
 }
 
 .homebottomcontent {
   font-size: 28px;
-  text-align: center;
+  text-align: center; /* Ensure text is centered horizontally */
   margin-top: 35px;
+  width: 100%; /* Ensure it takes up the full width of its container */
+  display: flex; /* Use flexbox to align items */
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically (if needed) */
+  text-align: center; /* Ensure text is horizontally centered */
 }
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .yourstoryimage {
-    width: 50%; /* Reduce image size on medium screens */
-    margin-left: 25%; /* Adjust margin for better positioning */
+    max-width: 65%;
   }
 
   .yourstorybutton {
-    font-size: 30px; /* Smaller button text for medium screens */
-    margin-left: 20%; /* Center button better on medium screens */
+    font-size: 30px;
+    margin-left: 20%;
   }
 }
 
 @media (max-width: 900px) {
   .yourstoryimage {
-    width: 60%; /* Adjust image size on tablets */
-    margin-left: 20%; /* Adjust margin for tablets */
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto; /* Center image */
   }
 
   .yourstorybutton {
-    font-size: 28px; /* Smaller font size for tablets */
-    margin-left: 10%; /* Adjust button margin for tablets */
+    font-size: 28px;
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
   }
 
   .homebottomcontent {
-    font-size: 20px; /* Smaller text for tablets */
+    font-size: 20px;
   }
 }
 
 @media (max-width: 600px) {
+  .yourstorysection {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center align sections */
+    padding: 20px; /* Less padding for smaller screens */
+  }
+
+  .yourstorysectionleft, .yourstorysectionright {
+    width: 100%; /* Take up full width */
+    margin-bottom: 20px; /* Space between stacked sections */
+  }
+
   .yourstoryimage {
-    width: 80%; /* Increase image size for mobile screens */
-    margin-left: 10%; /* Adjust margin for mobile */
+    max-width: 85%; /* Make image bigger */
+    margin-left: auto;
+    margin-right: auto; /* Center image */
   }
 
   .yourstorybutton {
-    font-size: 24px; /* Smaller button text for mobile */
-    margin: 20px auto; /* Center the button horizontally */
-    width: 80%; /* Ensure button width is appropriate for mobile screens */
+    font-size: 24px;
+    margin: 20px auto;
+    width: 80%;
     text-align: center;
   }
 
   .homebottomcontent {
-    font-size: 18px; /* Smaller text for mobile */
+    font-size: 18px;
   }
 }
+
+/* For very small screens, like extra small phones */
+@media (max-width: 400px) {
+  .yourstorybutton {
+    font-size: 22px; /* Reduce font size for small screens */
+    padding: 10px 20px;
+  }
+
+  .yourstoryimage {
+    max-width: 95%; /* Make image even larger */
+  }
+
+  .homebottomcontent {
+    font-size: 16px; /* Reduce font size further */
+  }
+}
+
+
+
+
 .channeldatasection{
   text-align: center;
 }
@@ -658,3 +730,6 @@
 .trendingvideos {
   animation-delay: 0.7s;
 }
+
+
+

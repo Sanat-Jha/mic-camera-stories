@@ -27,3 +27,5 @@ function formatNumberToK(number) {
         window.location.href = `/story?videoid=${videoId}`;
       });
     });
+
+  

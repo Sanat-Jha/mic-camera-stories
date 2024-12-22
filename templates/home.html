@@ -53,26 +53,36 @@
     </div>
 
     <div class="yourstorysection animate-on-scroll">
-      <p class="papercutpyourstory"><img src="{% static 'img/papercut.png'%}" alt="papercut" class="papercut"></p>
-      <img src="{% static 'img/Your Story title image.png'%}" alt="Your Story" class="yourstoryimage animate-on-scroll">
-      <a href="/yourstory" class="yourstorybutton animate-on-scroll">Reserve Your Spot</a>
-      <p class="homebottomcontent animate-on-scroll">Together Let's Transform Lives Through Inspiring Narratives</p>
+      <div class="yourstorysectionleft">
+        <p class="papercutpyourstory"><img src="{% static 'img/papercut.png'%}" alt="papercut" class="papercut"></p>
+        <img src="{% static 'img/Your Story title image.png'%}" alt="Your Story" class="yourstoryimage animate-on-scroll">
+        <a href="/yourstory" class="yourstorybutton animate-on-scroll">Reserve Your Spot</a>
+        <p class="homebottomcontent animate-on-scroll">Together Let's Transform Lives Through Inspiring Narratives</p>
+      </div>
+      <div class="yourstorysectionright">
+        <video class="yourstoryvideo animate-on-scroll" autoplay loop muted playsinline>
+          <source src="{% static 'img/yourstoryvideo.mov' %}" type="video/mp4" />
+          <source src="{% static 'img/yourstoryvideo.mov' %}" type="video/quicktime" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
+    
 
     <div class="channeldatasection animate-on-scroll">
       <h1 class="channeldatatitle animate-on-scroll">Making A Difference</h1>
       <div class="channeldatalist">
         <div class="channeldataitem animate-on-scroll">
-          <p class="channeldataitemtitle">Total views</p>
+          <p class="channeldataitemtitle">People Trust Us</p>
           <p class="channeldataitemdata" id="total-views">{{channel.views}}</p>
         </div>
         <div class="channeldataitem animate-on-scroll">
-          <p class="channeldataitemtitle">Total Subscribers</p>
+          <p class="channeldataitemtitle">Who Changed Life</p>
           <p class="channeldataitemdata" id="total-subscribers">{{channel.subscribers}}</p>
         </div>
         <div class="channeldataitem animate-on-scroll">
-          <p class="channeldataitemtitle">Total Stories</p>
-          <p class="channeldataitemdata">{{channel.videos}}</p>
+          <p class="channeldataitemtitle">Average Time Spent</p>
+          <p class="channeldataitemdata">15 mins</p>
         </div>
       </div>
     </div>
