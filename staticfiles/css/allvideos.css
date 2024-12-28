@@ -1,0 +1,271 @@
+
+
+
+.heading{
+    font-size: 3.5rem;
+    width: 100%;
+    text-align: center;
+    animation: slideInFromTop 1s ease-out forwards;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 3% 0;
+    background-color: white;
+}
+@media (max-width: 900px) {
+    .heading {
+        font-size: 2rem;
+        /* Adjust font size for mobile */
+    }
+}
+
+
+
+.storiesgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Style for video cards */
+.video-card {
+  background-color: #fff;
+  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Thumbnail image maintains aspect ratio */
+.video-thumbnail {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 2.28; /* Ensures 480x360 aspect ratio */
+  object-fit: cover;
+  background-color: #000; /* Fallback for unloaded images */
+}
+
+/* Video info container */
+.video-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+/* Video title with dynamic style */
+.video-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+  color: #222;
+}
+
+/* Video stats with a fun, engaging style */
+.video-stats {
+  font-size: 20px;
+  color: #242424;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Watch button with black background */
+.watch-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: auto; /* Push the button to the bottom */
+}
+
+.watch-button:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 768px) {
+  .storiesgrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .video-title {
+    font-size: 22px;
+  }
+
+  .video-stats {
+    font-size: 18px;
+  }
+
+  .watch-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
+  .storiesgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-title {
+    font-size: 20px;
+  }
+
+  .video-stats {
+    font-size: 16px;
+  }
+
+  .watch-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    flex-wrap: wrap; /* Allow footer sections to wrap on smaller screens */
+    padding: 20px;
+  }
+  
+  .footerlogo {
+    margin-top: 10%;
+    width: 15rem; /* Adjust logo width */
+  }
+  
+  .footersection {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .footersectiontitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .footerbottomredline {
+    background-color: red;
+    height: 3px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;   
+  }
+  
+  .footerbottom {
+    color: white;
+    margin: auto;
+    text-align: center; /* Center the bottom text */
+    padding: 10px 0;
+  }
+  
+  /* Media Queries for responsiveness */
+  
+  @media screen  and (max-width: 980px){
+    .footerlogo {
+      display: none;
+    }
+  }
+  
+  
+  /* For mobile screens */
+  @media screen and (max-width: 750px) {
+    .footerlogo {
+      width: 10rem; /* Reduce logo size for mobile */
+      display:inline-block;
+    }
+  
+    .footersection {
+      width: 100%; /* Stack sections vertically */
+      margin: 10px 0; /* Add space between stacked sections */
+      text-align: center; /* Center-align the text */
+    }
+  
+    .footersectiontitle {
+      font-size: 18px; /* Reduce font size for mobile */
+    }
+  
+    .footerbottom {
+      font-size: 14px; /* Adjust the bottom text size */
+    }
+  }
+  
+  
+
+  /* Add general animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInFromRight {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+
+@keyframes slideInFromTop {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  0% { transform: translateY(100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Trigger animations when elements are visible */
+.fade-in { animation: fadeIn 1s ease-out forwards; }
+.slide-in-left { animation: slideInFromLeft 1s ease-out forwards; }
+.slide-in-right { animation: slideInFromRight 1s ease-out forwards; }
+.slide-in-top { animation: slideInFromTop 1s ease-out forwards; }
+.slide-in-bottom { animation: slideInFromBottom 1s ease-out forwards; }
+.bounce-in { animation: bounceIn 1s ease-out forwards; }
+
+/* Add a small delay between each video card */
+.video-card {
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card.visible {
+  opacity: 1;
+}
+
+.video-title, .video-stats, .watch-button {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.video-title.visible, .video-stats.visible, .watch-button.visible {
+  opacity: 1;
+}

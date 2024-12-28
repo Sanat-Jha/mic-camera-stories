@@ -1,0 +1,198 @@
+
+
+/* Base styles for larger screens (Laptop and above) */
+.whoarewesection{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(to bottom, #ecececd2, #ffffff, #ffffff);
+}
+
+.whoarewecontent{
+    width: 50%;
+    text-align: center;
+}
+
+.whoarewecontent h1{
+    font-weight: 100;
+    font-size: 5em;
+    margin-top: 25%;
+    font-family: 'headLine';
+}
+
+.whoarewecontent p{
+    width: 80%;
+    margin: 5% auto;
+    font-size: 1.8em;
+}
+
+.whoareweimage{
+    width: 50%;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .whoarewesection {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .whoarewecontent {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .whoarewecontent h1 {
+        font-size: 2.5em; /* Reduce font size for mobile */
+        margin-top: 0;
+    }
+
+    .whoarewecontent p {
+        width: 90%;
+        font-size: 1.4em; /* Adjust font size for readability */
+    }
+
+    .whoareweimage {
+        width: 80%; /* Adjust image size for mobile */
+        margin-top: 20px;
+    }
+}
+
+.storysection{
+    color: white;
+    text-align: center;
+}
+.storysection h1{
+    font-weight:lighter;
+    font-size: 4em;
+    margin: 5% auto;
+    font-family: 'headLine';
+}
+
+.storysubsection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5% auto;
+}
+.storycontent{
+    width: 50%;
+    text-align: left;
+    display: inline;
+    font-size: 1.3em;
+    margin-left: 10%;
+}
+
+.storysubsection img{
+    width: 35%;
+    height: auto;
+    display: inline;
+}
+@media (max-width: 768px) {
+    .storysubsection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .storycontent {
+        width: 90%;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .storysubsection img {
+        width: 80%;
+        margin-top: 20px;
+    }
+    .storysection h1{
+        font-weight:lighter;
+        font-size: 2em;
+        margin: 5% auto;
+        font-family: 'headLine';
+    }
+}
+
+.dheerajmaurya{
+    margin-left: 5%;
+}
+.foundercontent{
+    width: 35%;
+    text-align: center;
+    display: inline;
+    font-size: 1.1em;
+    margin-right: 15%;
+}
+@media (max-width: 768px) {
+    .foundercontent{
+        width: 80%;
+        text-align: center;
+        display: inline;
+        font-size: 1.1em;
+        margin: auto;
+    }
+}
+.welcomesection{
+    background: linear-gradient(to bottom, #ecececdf, #ffffff);
+    text-align: center;
+    padding: 15% 0;
+    font-family: 'headLine';
+    color: black;
+    font-size: 2vw;
+}
+@media (max-width: 768px) {
+    .welcomesection {
+        padding: 20% 0;
+        font-size: 5vw;
+    }
+}
+
+
+
+.whoarewecontent,
+.whoareweimage,
+.footersection,
+.footerbottomtext,
+.storysubsection,
+.welcomesection {
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+}
+
+.whoarewecontent {
+    animation-name: fadeIn;
+}
+
+.whoareweimage {
+    animation-name: slideInFromLeft;
+}
+
+.footersection {
+    animation-name: fadeIn;
+}
+logo {
+    width: 15rem;
+}
+
+
+
+
+
+/* Adjustments for Mobile */
+@media (max-width: 768px) {
+    .whoarewesection {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .storysubsection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .storysubsection img {
+        width: 80%;
+    }
+}
