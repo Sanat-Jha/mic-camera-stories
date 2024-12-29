@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nvi$ym-!erj9cw++tvq4jf%04)g2&fjfi7n8uj&v59x2z^^1v%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["miccamerastories.com","*"]
+ALLOWED_HOSTS = ["miccamerastories.com"]
 
 
 # Application definition
