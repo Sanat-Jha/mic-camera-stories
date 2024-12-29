@@ -10,6 +10,10 @@
   width: 25%;
   height: auto;
   margin-top: 3%;
+  transition: all 0.5s ease;
+}
+.homemicimage:hover {
+  width: 26%;
 }
 
 
@@ -22,10 +26,9 @@
   margin-right: 40px;
   font-family: "HeadLine";
   margin-right: 10%;
+  transition: all 0.5s ease;
 }
 .headlinetext:hover {
-  background: linear-gradient(to bottom, #393939,#e7e7e7, #FFFFFF);
-  transition: all 0.5s ease;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 3.55vw;
@@ -56,6 +59,12 @@
   width: 50px;
   height: auto;
   margin: 0;
+}
+@media screen and (max-width: 600px) {
+  .papercut {
+    width: 30px;
+  }
+  
 }
 
 .homebottomcontent {
@@ -324,6 +333,12 @@
   margin: 0;
   transform: scaleX(-1); /* Flip the image horizontally */
 }
+@media screen and (max-width: 600px) {
+  .papercutpyourstory img {
+    width: 10%;
+  }
+  
+}
 
 .yourstoryimage {
   margin-top: 20px;
@@ -539,6 +554,13 @@
 .sidemicpic {
   width: 10%;
 }
+@media screen and (max-width: 600px) {
+  .sidemicpic {
+    width: 20%;
+  }
+
+  
+}
 
 .othercontenttitle {
   margin-top: 50px;
@@ -619,55 +641,48 @@
 /* For mobile screens */
 @media screen and (max-width: 600px) {
   .othercontenttitle {
-    font-size: 35px; /* Further reduce title size on mobile */
-    margin-left: 20px; /* Adjust margin for mobile */
+    font-size: 35px;
+    margin-left: 20px;
   }
 
   .othercontenttlist {
-    justify-content: center; /* Center items vertically and horizontally */
+    display: flex;
     flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center align items in the column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
   }
 
   .othercontentitem {
-    width: 80%; /* Increase width of items on mobile */
-    margin-bottom: 20px; /* Add space between stacked items */
+    width: 100%; /* Make items take the full width */
+    max-width: 350px; /* Add a max-width to prevent items from being too wide */
+    margin-bottom: 20px;
+    display: flex; /* Use flexbox for inner alignment */
+    flex-direction: column; /* Stack content inside each item */
+    align-items: center; /* Center align inner content */
   }
 
   .othercontentitemimage {
-    width: 80%; /* Make images larger on mobile */
+    width: 60%; /* Adjust image size for better visibility */
+    margin-bottom: 10px;
   }
 
   .circleimg {
-    width: 60%; /* Adjust the circular image size */
+    width: 50%; /* Keep circular image size proportional */
   }
 
   .othercontentitemtitle {
-    font-size: 25px; /* Adjust font size */
+    font-size: 25px;
+    text-align: center; /* Ensure text is centered */
   }
 
   .othercontentitemsubtitle {
-    font-size: 16px; /* Adjust subtitle font size */
-  }
-
-  .shortsubheading {
-    font-size: 14px; /* Adjust short subtitle font size */
+    font-size: 16px;
+    text-align: center; /* Center align the subtitle text */
   }
 }
 
 
-/* Headline Text animation */
-.headlinetext.in-view {
-  animation: fadeInUp 1s ease-in-out;
-}
 
-/* Home Bottom Animation */
-.homebottomcontent.in-view {
-  animation: fadeInUp 1s ease-in-out;
-}
-.homemicimage.in-view{
-  animation: fadeInLeft 1s ease-in-out;
-}
 
 
 .video-container.in-view {
@@ -692,10 +707,7 @@
   animation: bounceIn 1s ease-in-out;
 }
 
-/* Channel Data Section */
-.channeldataitem.in-view {
-  animation: fadeInUp 1s ease-in-out;
-}
+
 
 /* Border Animation */
 .borderforothercontent.in-view {
@@ -733,3 +745,66 @@
 
 
 
+
+/* Base transition styles for animated elements */
+
+.yourstoryvideo,
+.channeldataitem {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+/* Initial state for elements before they come into view */
+.yourstoryvideo:not(.in-view),
+.channeldataitem:not(.in-view) {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.headlinetext:not(.in-view),
+.homemicimage:not(.in-view) {
+  opacity: 0;
+}
+
+/* Smooth scale transition when elements are in view */
+.yourstoryvideo.in-view,
+.channeldataitem.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.headlinetext.in-view,
+.homemicimage.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Custom animations for specific elements */
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Add specific animation durations and timing functions */
+.headlinetext {
+  animation-duration: 0.8s;
+}
+
+.homemicimage {
+  animation-duration: 1s;
+}
+
+.yourstoryvideo {
+  animation-duration: 1.2s;
+}
+
+.channeldataitem {
+  animation-duration: 0.9s;
+}

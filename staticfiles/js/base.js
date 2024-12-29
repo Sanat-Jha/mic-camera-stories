@@ -23,9 +23,12 @@ const closeBtn = document.getElementById('close-btn');
 // Open the mobile nav when the hamburger is clicked
 hamburger.addEventListener('click', () => {
   mobileNav.classList.add('open');
+  document.body.classList.add('no-scroll'); // Disable scrolling
 });
 
 // Close the mobile nav when the close button is clicked
 closeBtn.addEventListener('click', () => {
   mobileNav.classList.remove('open');
+  document.body.classList.remove('no-scroll'); // Enable scrolling
+
 });

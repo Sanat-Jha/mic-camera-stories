@@ -63,6 +63,7 @@
     padding: 10px;
     position: relative; /* Required for positioning the pseudo-element */
     text-decoration: none; /* Optional: remove any default underline */
+    font-size: 20px;
   }
   
   /* Create the bottom border using ::after */
@@ -100,9 +101,8 @@
     background-color: black;
     width: 100vw; /* Full width of the viewport */
     height: 100vh; /* Full height of the viewport */
-    padding: 50px 20px;
+    padding: 50px auto;
     text-align: center;
-    z-index: 10010;
     overflow-y: auto; /* Allow scrolling if content exceeds viewport height */
   }
   .mobile-nav .navitem {
@@ -448,4 +448,10 @@
 /* Footer Section */
 .footersection.in-view {
     animation: fadeInUp 1s ease-in-out;
+  }
+
+
+  .no-scroll {
+    overflow: hidden; /* Prevent scrolling */
+    height: 100vh; /* Lock the viewport height */
   }
