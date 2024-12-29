@@ -63,7 +63,6 @@
     padding: 10px;
     position: relative; /* Required for positioning the pseudo-element */
     text-decoration: none; /* Optional: remove any default underline */
-    font-size: 20px;
   }
   
   /* Create the bottom border using ::after */
