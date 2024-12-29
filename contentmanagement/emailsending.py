@@ -117,7 +117,7 @@ def send_email(person_name, recipient_email_list):
         <div class="footer">
             <p>Keep sharing your stories,</p>
             <p><strong>The Mic Camera Stories Team</strong></p>
-            <p><a href="https://www.miccamerastories.com" target="_blank">Visit Our Website</a></p>
+            <p><a href="https://miccamerastories.com/" target="_blank">Visit Our Website</a></p>
         </div>
     </div>
 </body>
