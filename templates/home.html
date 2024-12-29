@@ -94,7 +94,7 @@
       <img src="{% static 'img/sidemicelement.png'%}" alt="mic" class="sidemicpic animate-on-scroll">
       <h1 class="othercontenttitle animate-on-scroll">Beyond Stories: Explore More Content</h1>
       <div class="othercontenttlist">
-        <a href="https://www.youtube.com/@DheerajmouryaIITR" target="_blank">
+        <a href="https://www.youtube.com/@DheerajmouryaIITR" class="othercontentitem animate-on-scroll" target="_blank">
         <div class="othercontentitem animate-on-scroll">
           <img src="{% static 'img/dheerajmauryachannellogo.png'%}" alt="Dheeraj Maurya" class="othercontentitemimage circleimg">
           <div class="othercontentitemtitle">Dheeraj Maurya</div>
@@ -103,7 +103,7 @@
           </div>
         </div>
       </a>
-      <a href="https://www.youtube.com/playlist?list=PLWHiffv-ceW9XLH-FUnL1HKHjQ8MB_0l5" target="_blank">
+      <a href="https://www.youtube.com/playlist?list=PLWHiffv-ceW9XLH-FUnL1HKHjQ8MB_0l5" class="othercontentitem animate-on-scroll" target="_blank">
         <div class="othercontentitem animate-on-scroll">
           <img src="{% static 'img/miccamerapodcastlogo.png'%}" alt="Mic Camera Podcast" class="othercontentitemimage">
           <div class="othercontentitemtitle">TALK with DHEERAJ</div>
@@ -119,4 +119,5 @@
         const subscribers = {{channel.subscribers}};
     </script>
 <script src="{% static 'js/home.js'%}"></script>
+
 {% endblock %}

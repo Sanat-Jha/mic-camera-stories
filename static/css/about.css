@@ -89,7 +89,12 @@
     width: 35%;
     height: auto;
     display: inline;
+    transition: 0.5s;
 }
+.divyaimage:hover{
+    width: 36%;
+}
+
 @media (max-width: 768px) {
     .storysubsection {
         flex-direction: column;
@@ -116,6 +121,9 @@
 
 .dheerajmaurya{
     margin-left: 5%;
+}
+.dheerajmaurya:hover{
+    width: 37%;
 }
 .foundercontent{
     width: 35%;
@@ -170,9 +178,6 @@
 
 .footersection {
     animation-name: fadeIn;
-}
-logo {
-    width: 15rem;
 }
 
 

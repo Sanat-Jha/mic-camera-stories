@@ -5,12 +5,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title%} {% endblock %}</title>
+
+  <!-- Title for SEO -->
+  <title>{% block title %} Mic Camera Stories - Real Journeys, Real Inspirations {% endblock %}</title>
+
+  <!-- Meta Descriptions for SEO -->
+  <meta name="description" content="Mic Camera Stories shares inspiring real-life journeys of people from all walks of life—students, achievers, and everyday heroes. Discover stories of perseverance, resilience, and success that inspire dreams and celebrate character.">
+  <meta name="keywords" content="inspiring stories, success stories, real-life journeys, JEE toppers, resilience, perseverance, motivational talks, interviews, academic success, life challenges, IIT Roorkee">
+  <meta name="author" content="Mic Camera Stories Team">
+
+  <!-- Social Media Preview (Open Graph) -->
+  <meta property="og:title" content="Mic Camera Stories - Real Journeys, Real Inspirations">
+  <meta property="og:description" content="Discover inspiring stories of resilience and success—whether from IIT toppers or unsung heroes. Weekly talks that motivate and celebrate determination.">
+  <meta property="og:image" content="{% static 'img/NavLogo.png' %}">
+  <meta property="og:url" content="https://www.miccamerastories.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mic Camera Stories - Real Journeys, Real Inspirations">
+  <meta name="twitter:description" content="Mic Camera Stories brings you motivational talks and real-life journeys of perseverance and success from all walks of life.">
+  <meta name="twitter:image" content="{% static 'img/NavLogo.png' %}">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'img/NavLogo.png' %}" type="image/x-icon">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  <link rel="shortcut icon" href="{% static 'img/NavLogo.png'%}" type="image/x-icon">
-  {% block header%}
+
+  {% block header %}
   {% endblock %}
 </head>
+
 
 <body>
 
@@ -61,6 +86,7 @@
   <div class="footerbottomredline animate-on-scroll">.</div>
   <div class="footerbottom">
     <p class="footerbottomtext">© 2021 Mic Camera Stories. All Rights Reserved.</p>
+    <p class="footerbottomtext"><a href="/https://www.youtube.com/@DheerajmouryaIITR">Desgined by -  Dheeraj Maurya</a> | <a href="https://sanatjha.me"> Developed by - Sanat Jha</a></p>
   </div>
 
   <script src="{% static 'js/base.js'%}"></script>

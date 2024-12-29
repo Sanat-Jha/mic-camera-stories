@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-import mimetypes
-
-mimetypes.add_type("video/quicktime", ".mov", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nvi$ym-!erj9cw++tvq4jf%04)g2&fjfi7n8uj&v59x2z^^1v%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["miccamerastories.com"]
+ALLOWED_HOSTS = ["miccamerastories.com","*"]
 
 
 # Application definition
