@@ -32,3 +32,8 @@ closeBtn.addEventListener('click', () => {
   document.body.classList.remove('no-scroll'); // Enable scrolling
 
 });
+
+
+document.getElementById("gallery").addEventListener("click", function() {
+  alert("Gallery coming soon!");
+});
