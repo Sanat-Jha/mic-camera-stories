@@ -8,7 +8,7 @@ def start():
     scheduler = BackgroundScheduler()
     scheduler.add_jobstore(DjangoJobStore(), "default")
 
-    scheduler.add_job(fetchchanneldetails, 'interval', hours=24, id='refresh_database', replace_existing=True)
+    scheduler.add_job(fetchchanneldetails, 'interval', hours=1, id='refresh_database', replace_existing=True)
 
     register_events(scheduler)
     scheduler.start()
