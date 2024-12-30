@@ -4,7 +4,7 @@ import os
 from django.conf import settings
 
 def send_email(person_name, recipient_email_list):
-    sender_mail = "miccamerastories@gmail.com"
+    sender_mail = "yourstory@miccamerastories.com"
     subject = f"Story Submission Successful"
     
     # Email body with a placeholder for the image CID
@@ -97,7 +97,7 @@ def send_email(person_name, recipient_email_list):
     <div class="container">
         <!-- Header with Logo -->
         <div class="header">
-            <img src="cid:logo_image" alt="Mic Camera Stories Logo">
+            <img src="cid:logo_image" name="Mic Camera Stories" alt="Mic Camera Stories Logo">
             <h1>Your Story, Your Voice</h1>
         </div>
 

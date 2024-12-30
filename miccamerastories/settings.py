@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-nvi$ym-!erj9cw++tvq4jf%04)g2&fjfi7n8uj&v59x2z^^1v%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["miccamerastories.com"]
+ALLOWED_HOSTS = ["miccamerastories.com","*"]
 
 
 # Application definition
@@ -134,11 +134,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'miccamerastories@gmail.com'
-EMAIL_HOST_PASSWORD = 'tsxj tkrw hlhb wtbr'
+EMAIL_HOST = 'localhost'
+EMAIL_USE_TLS = False
+EMAIL_PORT = 25  # or 465 if using SSL
+EMAIL_HOST_USER = 'yourstory@miccamerastories.com'
+EMAIL_HOST_PASSWORD = 'Miccamerastories200924@'
 
 
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
