@@ -112,10 +112,9 @@
   }
   
   .close-btn {
-    position: absolute;
-    top: 20px;
+    margin-top: 20px;
     right: 20px;
-    font-size: 30px;
+    font-size: 50px;
     color: white;
     cursor: pointer;
   }

@@ -18,9 +18,18 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from miccamerastories import settings
+from django.contrib import sitemaps
+from django.contrib.sitemaps.views import sitemap
+from contentmanagement.sitemaps import StaticViewSitemap, VideoSitemap
 
+sitemaps = {
+    'static': StaticViewSitemap,
+    'videos': VideoSitemap,
+}
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include('contentmanagement.urls'))
+    path("", include('contentmanagement.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
